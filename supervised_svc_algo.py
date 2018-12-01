@@ -1,3 +1,4 @@
+# import the required packages and modules
 import os
 import glob
 import numpy as np
@@ -27,8 +28,8 @@ X = []
 Y = []
 
 
-# convert images into numeric lists
-# loop over all the labels in the folder
+# convert images into numeric lists by
+# looping over all the labels in the folder
 count = 1
 for i, label in enumerate(train_labels):
     cur_path = train_path + "/" + label
@@ -43,7 +44,8 @@ for i, label in enumerate(train_labels):
         Y.append(label)
         count += 1
 
-# convert to np array
+
+# convert to np arrays
 X = np.asarray(X)
 Y = np.asarray(Y)
 
@@ -54,15 +56,16 @@ print('Data label shape: ', Y.shape)
 # split the data into a training and testing set,
 X_Train, X_Test, Y_Train, Y_Test = train_test_split(X, Y, random_state=0)
 
-
 print('Data shape: ', X_Train.shape)
 print('Data label shape: ', Y_Train.shape)
 
 
+# create the SVC model
 model = SVC(kernel='poly', C=0.1, max_iter=500000, gamma='auto')
-
 model.fit(X_Train, Y_Train)
 
+
+# predict the results from testing dataset
 Y_Pred = model.predict(X_Test)
 
 
