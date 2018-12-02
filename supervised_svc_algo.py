@@ -28,7 +28,7 @@ X = []
 Y = []
 
 
-# Ste-5: convert images into numeric lists by looping over all the labels in the folder
+# Step-5: convert images into numeric lists by looping over all the labels in the folder
 count = 1
 for i, label in enumerate(train_labels):
     cur_path = train_path + "/" + label
